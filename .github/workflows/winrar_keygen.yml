@@ -12,7 +12,9 @@ jobs:
 
     - name: Generate key 
       shell: powershell
-      run: bin/x64-Release/winrar-keygen.exe "${{secrets.WINRAR_TEXT1}}" "${{secrets.WINRAR_TEXT2}}" | Out-File -Encoding ASCII rarreg.key
+      run: |
+        dir
+        bin/x64-Release/winrar-keygen.exe "${{secrets.WINRAR_TEXT1}}" "${{secrets.WINRAR_TEXT2}}" | Out-File -Encoding ASCII rarreg.key
       
     - name: Upload key
       uses: actions/upload-artifact@v3.1.1
